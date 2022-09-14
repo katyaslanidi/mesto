@@ -9,7 +9,7 @@
     color: #000000;
     text-overflow: ellipsis;
     white-space: nowrap;
-    overflow: hidden;  
+    overflow: hidden;
     max-width: 190px;
     min-height: 23px;
 }
