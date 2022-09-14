@@ -6,6 +6,10 @@
     margin-bottom: auto;
     background-color: #000;
     border: solid 1px #fff;
+    background-image: url(../../../images/add.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 22px 22px;
 }
 
 .profile__add:hover {

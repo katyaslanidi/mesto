@@ -1,3 +1,4 @@
+console.log('hello');
 //открыть-закрыть попап
 const overlayEl = document.querySelector('.overlay');
 const openPopup = document.querySelector('.profile__edit');
@@ -15,6 +16,7 @@ closePopup.addEventListener('click', () => {
 let formElement = document.querySelector('.popup__form');
 let nameInput = document.querySelector('.popup__name');
 let jobInput = document.querySelector('.popup__job');
+let saveButton = document.querySelector('.popup__button');
 
 let nameProfile = document.querySelector('.profile__name');
 let jobProfile = document.querySelector('.profile__job');
@@ -30,3 +32,6 @@ function formSubmitHandler(evt) {
     jobProfile.textContent = document.getElementById("GET-job").value;
 }
 formElement.addEventListener('submit', formSubmitHandler);
+saveButton.addEventListener('click', () => {
+    overlayEl.classList.remove('overlay_opened');
+})
