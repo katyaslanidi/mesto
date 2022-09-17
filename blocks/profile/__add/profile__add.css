@@ -1,15 +1,13 @@
 .profile__add {
-    margin-left: 244px;
     width: 150px;
     height: 50px;
-    margin-top: auto;
-    margin-bottom: auto;
     background-color: #000;
     border: solid 1px #fff;
     background-image: url(../../../images/add.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 22px 22px;
+    margin: auto 0 auto auto;
 }
 
 .profile__add:hover {

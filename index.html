@@ -16,62 +16,59 @@
         </header>
         <main>
             <section class="profile">
-                <div class="profile__avatar">
-                    <img class="profile__image" src="images/image.png" alt="аватар">
-                </div>
+                <img class="profile__image" src="images/image.png" alt="аватар">
                 <div class="profile__info">
                     <div class="profile__text">
-                        <h2 class="profile__name">Жак-Ив Кусто</h2>
+                        <h1 class="profile__name">Жак-Ив Кусто</h1>
                         <p class="profile__job">Исследователь океана</p>
                     </div>
                     <button class="profile__edit" type="button"></button>
                 </div>
-                <button class="profile__add"></button>
+                <button class="profile__add" type="button"></button>
             </section>
-            <section class="elements">
-                <div class="element">
-                    <img class="element__image" src="images/karachaevsk.jpg" alt="">
-                    <div class="element__bottom">
-                        <h2 class="element__text">Карачаевск</h2>
-                        <button class="element__like" type="button"></button>
+            <content>
+                <section class="elements">
+                    <div class="element">
+                        <img class="element__image" src="images/karachaevsk.jpg" alt="">
+                        <div class="element__bottom">
+                            <h2 class="element__text">Карачаевск</h2>
+                            <button class="element__like" type="button"></button>
+                        </div>
                     </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="images/elbrus.jpg" alt="">
-                    <div class="element__bottom">
-                        <h2 class="element__text">Гора Эльбрус</h2>
-                        <button class="element__like" type="button"></button>
+                    <div class="element">
+                        <img class="element__image" src="images/elbrus.jpg" alt="Гора Эльбрус
+                        </div>
                     </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="images/dombai.jpg" alt="">
-                    <div class="element__bottom">
-                        <h2 class="element__text">Домбай</h2>
-                        <button class="element__like" type="button"></button>
+                    <div class="element">
+                        <img class="element__image" src="images/dombai.jpg" alt="Домбай">
+                        <div class="element__bottom">
+                            <h2 class="element__text">Домбай</h2>
+                            <button class="element__like" type="button"></button>
+                        </div>
                     </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="images/elbrus.jpg" alt="">
-                    <div class="element__bottom">
-                        <h2 class="element__text">Гора Эльбрус</h2>
-                        <button class="element__like" type="button"></button>
+                    <div class="element">
+                        <img class="element__image" src="images/elbrus.jpg" alt="Гора Эльбрус">
+                        <div class="element__bottom">
+                            <h2 class="element__text">Гора Эльбрус</h2>
+                            <button class="element__like" type="button"></button>
+                        </div>
                     </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="images/dombai.jpg" alt="">
-                    <div class="element__bottom">
-                        <h2 class="element__text">Домбай</h2>
-                        <button class="element__like" type="button"></button>
+                    <div class="element">
+                        <img class="element__image" src="images/dombai.jpg" alt="Домбай">
+                        <div class="element__bottom">
+                            <h2 class="element__text">Домбай</h2>
+                            <button class="element__like" type="button"></button>
+                        </div>
                     </div>
-                </div>
-                <div class="element">
-                    <img class="element__image" src="images/karachaevsk.jpg" alt="">
-                    <div class="element__bottom">
-                        <h2 class="element__text">Карачаево-Черкесия</h2>
-                        <button class="element__like" type="button"></button>
+                    <div class="element">
+                        <img class="element__image" src="images/karachaevsk.jpg" alt="Карачаево-Черкесия">
+                        <div class="element__bottom">
+                            <h2 class="element__text">Карачаево-Черкесия</h2>
+                            <button class="element__like" type="button"></button>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </content>
         </main>
         <footer class="footer">
             <h2 class="footer__text">&copy; 2020 Mesto Russia</h2>
@@ -81,8 +78,8 @@
                 <button class="overlay__button" type="button"></button>
                 <form class="popup__form">
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <input class="popup__name" id="GET-name" type="text" name="name">
-                    <input class="popup__job" id="GET-job" type="text" name="job">
+                    <input class="popup__input popup__input_name" id="GET-name" type="text" name="name">
+                    <input class="popup__input popup__input_job" id="GET-job" type="text" name="job">
                     <button class="popup__button">Сохранить</button>
                 </form>
             </div>
