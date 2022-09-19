@@ -6,7 +6,7 @@
     background-color: #000000;
 }
 
-@media screen and (max-width: 589px) and (min-width: 320px) {
+@media screen and (max-width: 589px) {
     .popup__line {
         max-width: 238px;
     }

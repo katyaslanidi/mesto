@@ -4,3 +4,9 @@
     flex-direction: column;
     row-gap: 16px;
 }
+
+@media screen and (max-width: 885px) {
+    .profile__text {
+        max-width: 85%;
+    }
+}

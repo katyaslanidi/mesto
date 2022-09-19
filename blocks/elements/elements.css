@@ -19,7 +19,7 @@
     }
 }
 
-@media screen and (max-width: 589px) and (min-width: 320px) {
+@media screen and (max-width: 589px) {
     .elements {
         grid-template-columns: repeat(1, 282px);
         grid-template-rows: repeat(1, 361px);
