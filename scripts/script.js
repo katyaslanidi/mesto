@@ -10,26 +10,23 @@ const saveButton = document.querySelector('.popup__button');
 const nameProfile = document.querySelector('.profile__name');
 const jobProfile = document.querySelector('.profile__job');
 
-function OpenPopupListener() {
+function openPopupListener() {
     overlayEl.classList.add('overlay_opened');
     nameInput.value = nameProfile.textContent;
     jobInput.value = jobProfile.textContent;
 }
-function ClosePopupListener(){
-        overlayEl.classList.remove('overlay_opened');
+function closePopupListener(){
+    overlayEl.classList.remove('overlay_opened');
 }
-//редактор профиля
+
 function formSubmitHandler(evt) {
     evt.preventDefault();
-    nameProfile.textContent = document.getElementById("GET-name").value;
-    //я понимаю, что данное выражение эквивалентно записи: nameProfile.textContent = nameInput.value;
-    //но я не понимаю как мне по-другому сделать замену нового имени, вызвать тут функцию OpenPopupListener?
-    jobProfile.textContent = document.getElementById("GET-job").value;
-    closePopup.addEventListener('click', ClosePopupListener);
-
+    nameProfile.textContent = nameInput.value;
+    jobProfile.textContent = jobInput.value;
+    closePopupListener();
 }
 
-openPopup.addEventListener('click', OpenPopupListener);
-closePopup.addEventListener('click', ClosePopupListener);
+openPopup.addEventListener('click', openPopupListener);
+closePopup.addEventListener('click', closePopupListener);
 formElement.addEventListener('submit', formSubmitHandler);
 
