@@ -73,60 +73,77 @@ const initialCards = [
 ];
 
 const elementsCard = document.querySelector('.elements');
+const cardElement = document.querySelector('.element');
 const elementTemplate = document.querySelector('.element-template').content;
 const titleInput = document.querySelector('.popup__input_title'); //инпут name
 const urlInput = document.querySelector('.popup__input_url');//инпут link
 const formAddCard = document.querySelector('.popup_add_image__form');
+const cardPopup = document.querySelector('.image_popup');
+
 function render() {
   initialCards.forEach(renderCard);
 }
 function renderCard(initialCards) {
   const newElement = elementTemplate.cloneNode(true);
   const imageSrc = newElement.querySelector('.element__image');
-  imageSrc.src = initialCards.link;
   const cardText = newElement.querySelector('.element__text');
+
+  imageSrc.src = initialCards.link;
+  imageSrc.alt = initialCards.name;
   cardText.textContent = initialCards.name;
+
+  setListenersForItem(newElement);
   elementsCard.appendChild(newElement);
 }
 render();
 
+function setListenersForItem(element) {
+  const deleteCardButton = element.querySelector('.element__delete');
+  deleteCardButton.addEventListener('click', deleteCard);
 
-const cardElement = document.querySelector('.element');
+  const elementLike = element.querySelector('.element__like');
+  elementLike.addEventListener('click', addOrRemoveLike);
+
+  const cardImage = element.querySelector('.element__image');
+  cardImage.addEventListener('click', openCard);
+}
 
 //удаление карточки
-const deleteCardButton = document.querySelector('.element__delete');
-deleteCardButton.addEventListener('click', deleteCard);
-
 function deleteCard(evt) {
   const currentCardItem = evt.target.closest('.element');
   currentCardItem.remove();
 }
-
 //ставим лайк
-const elementLike = document.querySelector('.element__like');
-
-function addOrRemoveLike(){
-  if (elementLike.classList.contains('element__liked')) {
-    elementLike.classList.remove('element__liked');
+function addOrRemoveLike(evt) {
+  const currentCardItem = evt.target.closest('.element');
+  const currentCardLike = currentCardItem.querySelector('.element__like');
+  if (currentCardLike.classList.contains('element__liked')) {
+    currentCardLike.classList.remove('element__liked');
   } else {
-    elementLike.classList.add('element__liked');
+    currentCardLike.classList.add('element__liked');
   }
 }
-elementLike.addEventListener('click', addOrRemoveLike);
-
 //открываем карточку
-const imagePopup = document.querySelector('.image_popup');
-const cardImage = document.querySelector('.element__image');
-const closeImage = document.querySelector('.image_popup__close');
+function openCard(evt) {
+  const currentCardItem = evt.target.closest('.element');
+  const currentCardImage = currentCardItem.querySelector('.element__image');
+  const currentCardText = currentCardItem.querySelector('.element__text');
 
-function openCard() {
-  imagePopup.classList.add('image_popup_opened');
+  const popupText = document.querySelector('.image_popup__text')
+  const popupImage = document.querySelector('.image_popup__image');
+
+  popupText.textContent = currentCardText.textContent;
+  popupImage.src = currentCardImage.src;
+  popupImage.alt = currentCardImage.alt;
+
+  cardPopup.classList.add('image_popup_opened');
 }
+
+const closeImage = document.querySelector('.image_popup__close');
 function closeCard() {
-  imagePopup.classList.remove('image_popup_opened');
+  cardPopup.classList.remove('image_popup_opened');
 }
-cardImage.addEventListener('click', openCard);
-closeImage.addEventListener('click', closeCard)
+closeImage.addEventListener('click', closeCard);
 
 //добавляем новую карточку
 function addNewCard(e) {
