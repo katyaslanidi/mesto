@@ -33,17 +33,17 @@ const jobInput = document.querySelector('.popup__input_job');
 const saveButton = document.querySelector('.popup__button');
 const nameProfile = document.querySelector('.profile__name');
 const jobProfile = document.querySelector('.profile__job');
-const popupEl = document.querySelector('.popup_add_image');
+const popupEl = document.querySelector('.addition');
 const openAddButton = document.querySelector('.profile__add');
-const closeAddButton = document.querySelector('.popup_add_image__close');
+const closeAddButton = document.querySelector('.addition__close');
 const elementsCard = document.querySelector('.elements');
 const cardElement = document.querySelector('.element');
 const elementTemplate = document.querySelector('.element-template').content;
 const titleInput = document.querySelector('.popup__input_title');
 const urlInput = document.querySelector('.popup__input_url');
-const formAddCard = document.querySelector('.popup_add_image__form');
-const cardPopup = document.querySelector('.image_popup');
-const closeImage = document.querySelector('.image_popup__close');
+const formAddCard = document.querySelector('.addition__form');
+const cardPopup = document.querySelector('.card');
+const closeImage = document.querySelector('.card__close');
 const initialCardsReverse = initialCards.reverse();
 
 function openPopup() {
@@ -62,10 +62,10 @@ function formSubmitHandler(evt) {
 }
 //попап добавления картинки
 function openAdd() {
-  popupEl.classList.add('popup_add_image_opened');
+  popupEl.classList.add('addition_opened');
 }
 function closeAdd() {
-  popupEl.classList.remove('popup_add_image_opened');
+  popupEl.classList.remove('addition_opened');
   formAddCard.reset();
 }
 //вывод картинок из массива
@@ -105,18 +105,18 @@ function openCard(evt) {
   const currentCardItem = evt.target.closest('.element');
   const currentCardImage = currentCardItem.querySelector('.element__image');
   const currentCardText = currentCardItem.querySelector('.element__text');
-  const popupText = document.querySelector('.image_popup__text')
-  const popupImage = document.querySelector('.image_popup__image');
+  const popupText = document.querySelector('.card__text')
+  const popupImage = document.querySelector('.card__image');
 
   popupText.textContent = currentCardText.textContent;
   popupImage.src = currentCardImage.src;
   popupImage.alt = currentCardImage.alt;
 
-  cardPopup.classList.add('image_popup_opened');
+  cardPopup.classList.add('card_opened');
 }
 //закрываем карточку
 function closeCard() {
-  cardPopup.classList.remove('image_popup_opened');
+  cardPopup.classList.remove('card_opened');
 }
 //добавляем новую карточку
 function addNewCard(e) {

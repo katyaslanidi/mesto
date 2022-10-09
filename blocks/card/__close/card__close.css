@@ -1,4 +1,4 @@
-.image_popup__close {
+.card__close {
     background: none;
     position: absolute;
     width: 32px;
@@ -9,12 +9,12 @@
     background-image: url(../../../images/close_icon.svg);
 }
 
-.image_popup__close:hover {
+.card__close:hover {
     opacity: 0.6;
 }
 
 @media screen and (max-width: 589px) {
-    .image_popup__close {
+    .card__close {
         width: 20px;
         height: 20px;
         right: 0;
