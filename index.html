@@ -32,9 +32,9 @@
         <footer class="footer">
             <h2 class="footer__text">&copy; 2020 Mesto Russia</h2>
         </footer>
-        <div class="overlay">
+        <div class="overlay profile-popup">
             <div class="popup">
-                <button class="overlay__button" type="button"></button>
+                <button class="popup__button-close profile-popup__button-close" type="button"></button>
                 <form class="popup__form">
                     <h2 class="popup__title">Редактировать профиль</h2>
                     <input class="popup__input popup__input_name" id="GET-name" type="text" name="name">
@@ -43,24 +43,24 @@
                 </form>
             </div>
         </div>
-        <div class="addition">
+        <div class="overlay add-card-popup">
             <div class="popup"> 
-                <button class="addition__close" type="button"></button>
-                <form class="addition__form">
-                    <h2 class="popup__title">Новое место</h2>
+                <button class="popup__button-close add-card-popup__button-close" type="button"></button>
+                <form class="popup__form add-card-popup__form">
+                    <h2 class="popup__title add-card-popup__title">Новое место</h2>
                     <input class="popup__input popup__input_title" id="GET-title" type="text" name="title"
                         placeholder="Название">
                     <input class="popup__input popup__input_url" id="GET-url" type="text" name="url"
                         placeholder="Ссылка на картинку">
-                    <button class="addition__button" type="submit">Создать</button>
+                    <button class="popup__button" type="submit">Создать</button>
                 </form>
             </div>
         </div>
-        <div class="card"> 
-            <div class="card__popup">
-                <button class="card__close" type="button"></button>
-                <img class="card__image">
-                <h2 class="card__text"></h2>
+        <div class="overlay card-popup"> 
+            <div class="card-popup__card">
+                <button class="popup__button-close card-popup__button-close" type="button"></button>
+                <img class="card-popup__image">
+                <h2 class="card-popup__text"></h2>
             </div>
         </div>
         <template class="element-template">

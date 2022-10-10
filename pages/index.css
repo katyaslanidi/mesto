@@ -33,24 +33,16 @@
 
 @import url(../blocks/overlay/overlay.css);
 @import url(../blocks/overlay/_opened/overlay_opened.css);
-@import url(../blocks/overlay/popup/popup.css);
-@import url(../blocks/overlay/popup/__title/popup__title.css);
-@import url(../blocks/overlay/__button/overlay__button.css);
-@import url(../blocks/overlay/popup/__button/popup__button.css);
-@import url(../blocks/overlay/popup/__form/popup__form.css);
-@import url(../blocks/overlay/popup/__line/popup__line.css);
 
-@import url(../blocks/overlay/popup/__input/popup__input.css);
+@import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/__button-close/popup__button-close.css);
+@import url(../blocks/popup/__form/popup__form.css);
+@import url(../blocks/popup/__title/popup__title.css);
+@import url(../blocks/popup/__input/popup__input.css);
+@import url(../blocks/popup/__button/popup__button.css);
 
-@import url(../blocks/addition/adittion.css);
-@import url(../blocks/addition/_opened/addition_opened.css);
-@import url(../blocks/addition/__close/addition__close.css);
-@import url(../blocks/addition/__form/addition__form.css);
-@import url(../blocks/addition/__button/addition__button.css);
+@import url(../blocks/add-card-popup/__title/add-card-popup__title.css);
 
-@import url(../blocks/card/card.css);
-@import url(../blocks/card/_opened/card_opened.css);
-@import url(../blocks/card/__popup/card__popup.css);
-@import url(../blocks/card/__close/card__close.css);
-@import url(../blocks/card/__image/card__image.css);
-@import url(../blocks/card/__text/card__text.css);
+@import url(../blocks/card-popup/__card/card-popup__card.css);
+@import url(../blocks/card-popup/__image/card-popup__image.css);
+@import url(../blocks/card-popup/__text/card-popup__text.css);

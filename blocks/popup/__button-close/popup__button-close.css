@@ -1,4 +1,4 @@
-.addition__close {
+.popup__button-close {
     background: none;
     position: absolute;
     width: 32px;
@@ -9,12 +9,12 @@
     background-image: url(../../../images/close_icon.svg);
 }
 
-.addition__close:hover {
+.popup__button-close:hover {
     opacity: 0.6;
 }
 
 @media screen and (max-width: 589px) {
-    .addition__close {
+    .popup__button-close {
         width: 20px;
         height: 20px;
         right: 0;
