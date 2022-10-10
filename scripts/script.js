@@ -139,6 +139,5 @@ closePopupButton.addEventListener('click', closeProfilePopup);
 profileForm.addEventListener('submit', submitForm);
 closeImage.addEventListener('click', closeCard);
 formAddCard.addEventListener('submit', addNewCard);
-closeImage.addEventListener('click', closeCard);
 
 render();
