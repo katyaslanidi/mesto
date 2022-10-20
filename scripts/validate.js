@@ -1,5 +1,13 @@
-const formEdit = document.forms.edit;
-const formCard = document.forms.card;
+function enableValidation(settings) {
+    const formArr = Array.from(document.querySelectorAll(settings.formSelector));
+    formArr.forEach((formSelector) => {
+        setEventListeners(formSelector);
+    });
+}
+
+function setEventListeners(form) {
+    form.addEventListener('input', validateInput);
+}
 
 function validateInput(evt) {
     const currentForm = evt.currentTarget;
@@ -17,6 +25,12 @@ function validateInput(evt) {
 function isValidField(input) {
     const errorSpan = input.parentNode.querySelector(`#${input.id}-error`);
     errorSpan.textContent = input.validationMessage;
+
+    if (input.checkValidity()) {
+        setErrorInput(input, true);
+    } else {
+        setErrorInput(input, false);
+    }
 }
 
 function setSubmitButton(button, state) {
@@ -31,5 +45,20 @@ function setSubmitButton(button, state) {
     }
 }
 
-formEdit.addEventListener('input', validateInput);
-formCard.addEventListener('input', validateInput);
+function setErrorInput(input, state) {
+    if (state) {
+        input.classList.remove('popup__input_error');
+
+    } else {
+        input.classList.add('popup__input_error');
+    }
+}
+
+enableValidation({
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button',
+    inactiveButtonClass: 'popup__button_invalid',
+    inputErrorClass: 'popup__input_error',
+    errorClass: 'error'
+});
