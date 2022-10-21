@@ -63,6 +63,12 @@ enableValidation({
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button',
     inactiveButtonClass: 'popup__button_invalid',
+<<<<<<< HEAD
     activeButtonClass: 'popup__button_valid',
     inputErrorClass: 'popup__input_error'
 });
+=======
+    inputErrorClass: 'popup__input_error',
+    errorClass: 'error'
+});
+>>>>>>> 54a275d2fd53c40e895b3866ffe5aad6c3ace673
