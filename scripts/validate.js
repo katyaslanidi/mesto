@@ -1,56 +1,60 @@
 function enableValidation(settings) {
-    const formArr = Array.from(document.querySelectorAll(settings.formSelector));
-    formArr.forEach((formSelector) => {
-        setEventListeners(formSelector);
+    const forms = document.querySelectorAll(settings.formSelector);
+
+    forms.forEach((formSelector) => {
+        setEventListeners(formSelector, settings);
     });
 }
 
-function setEventListeners(form) {
-    form.addEventListener('input', validateInput);
+function setEventListeners(form, settings) {
+    form.addEventListener('input', validateInput(settings));
 }
 
-function validateInput(evt) {
-    const currentForm = evt.currentTarget;
-    const currentButton = currentForm.querySelector('.popup__button');
-
-    isValidField(evt.target);
-
-    if (currentForm.checkValidity()) {
-        setSubmitButton(currentButton, true);
-    } else {
-        setSubmitButton(currentButton, false);
-    }
+const validateInput = (settings) => ( event ) => {
+    const currentForm = event.currentTarget;
+    isValidField(event.target);
+    isValidButtonAndInput(currentForm, event.target, settings);
 }
 
 function isValidField(input) {
     const errorSpan = input.parentNode.querySelector(`#${input.id}-error`);
     errorSpan.textContent = input.validationMessage;
+}
+
+function isValidButtonAndInput(currentForm, input, settings) {
+    const currentButton = currentForm.querySelector(settings.submitButtonSelector);
+
+    if (currentForm.checkValidity()) {
+        setSubmitButton(currentButton, true, settings);
+    } else {
+        setSubmitButton(currentButton, false, settings);
+    }
 
     if (input.checkValidity()) {
-        setErrorInput(input, true);
+        setErrorInput(input, true, settings);
     } else {
-        setErrorInput(input, false);
+        setErrorInput(input, false, settings);
     }
 }
 
-function setSubmitButton(button, state) {
+function setSubmitButton(button, state, settings) {
     if (state) {
         button.removeAttribute('disabled');
-        button.classList.add('popup__button_valid');
-        button.classList.remove('popup__button_invalid');
+        button.classList.add(settings.activeButtonClass);
+        button.classList.remove(settings.inactiveButtonClass);
     } else {
         button.setAttribute('disabled', true);
-        button.classList.add('popup__button_invalid');
-        button.classList.remove('popup__button_valid');
+        button.classList.add(settings.inactiveButtonClass);
+        button.classList.remove(settings.activeButtonClass);
     }
 }
 
-function setErrorInput(input, state) {
+function setErrorInput(input, state, settings) {
     if (state) {
-        input.classList.remove('popup__input_error');
+        input.classList.remove(settings.inputErrorClass);
 
     } else {
-        input.classList.add('popup__input_error');
+        input.classList.add(settings.inputErrorClass);
     }
 }
 
@@ -58,7 +62,7 @@ enableValidation({
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button',
-    inactiveButtonClass: '.popup__button_invalid',
-    inputErrorClass: '.popup__input_error',
-    errorClass: '.error'
+    inactiveButtonClass: 'popup__button_invalid',
+    activeButtonClass: 'popup__button_valid',
+    inputErrorClass: 'popup__input_error'
 });
