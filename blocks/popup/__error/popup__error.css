@@ -1,4 +1,4 @@
-.error {
+.popup__error {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -6,5 +6,7 @@
     line-height: 15px;
     color: #FF0000;
     align-self: start;
-    margin: 5px auto auto 36px;
+    margin: 0 auto auto 36px;
+    position: absolute;
+    top: 130px;
 }
