@@ -74,6 +74,7 @@ function submitForm(evt) {
 }
 
 function openAddCardPopup() {
+  cardButtonSubmit.setAttribute('disabled', true);
   openPopup(cardPopupAdd);
 }
 function closeAddCardPopup() {

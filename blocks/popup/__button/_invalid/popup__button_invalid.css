@@ -5,3 +5,7 @@
     border-radius: 2px;
     opacity: 0.5;
 }
+
+.popup__button_invalid:hover {
+    cursor: auto;
+}
