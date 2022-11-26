@@ -27,20 +27,24 @@ const validationSettings = {
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__button',
   inactiveButtonClass: 'popup__button_invalid',
-  activeButtonClass: 'popup__button_valid',
   inputErrorClass: 'popup__input_error',
   errorClass: 'error'
 };
 
-const editProfileValidator = new FormValidator(validationSettings, profileForm);
-const addCardValidator = new FormValidator(validationSettings, formAddCard);
+const profileValidatorEdit = new FormValidator(validationSettings, profileForm);
+const cardValidatorAdd = new FormValidator(validationSettings, formAddCard);
 
-editProfileValidator.enableValidation();
-addCardValidator.enableValidation();
+profileValidatorEdit.enableValidation();
+cardValidatorAdd.enableValidation();
 
-function renderCard(data) {
+function createCards(data) {
   const card = new Card(data, '.element-template');
   const newElement = card.createCard();
+  return newElement;
+}
+
+function renderCard(data) {
+  const newElement = createCards(data); 
   elementsCard.append(newElement);
 }
 function render() {
@@ -52,7 +56,6 @@ function addNewCard(e) {
   const card = new Card({ name: titleInput.value, link: urlInput.value }, '.element-template');
   const createNewElement = card.createCard();
   elementsCard.prepend(createNewElement);
-  cardButtonSubmit.setAttribute('disabled', true);
   cardButtonSubmit.classList.add('popup__button_invalid');
   cardButtonSubmit.classList.remove('popup__button_valid');
   closeAddCardPopup();
@@ -84,7 +87,6 @@ function submitForm(evt) {
 }
 
 function openAddCardPopup() {
-  cardButtonSubmit.setAttribute('disabled', true);
   openPopup(cardPopupAdd);
 }
 function closeAddCardPopup() {

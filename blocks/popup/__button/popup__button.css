@@ -11,6 +11,12 @@
     text-align: center;
     color: #FFF;
     border: none;
+    background-color: #000;
+}
+
+.popup__button:hover {
+    opacity: 0.6;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 589px) {
@@ -18,5 +24,6 @@
         max-width: 238px;
         font-size: 14px;
         line-height: 17px;
+        margin-top: 68px;
     }
 }
