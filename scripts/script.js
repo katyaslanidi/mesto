@@ -56,8 +56,6 @@ function addNewCard(e) {
   const card = new Card({ name: titleInput.value, link: urlInput.value }, '.element-template');
   const createNewElement = card.createCard();
   elementsCard.prepend(createNewElement);
-  cardButtonSubmit.classList.add('popup__button_invalid');
-  cardButtonSubmit.classList.remove('popup__button_valid');
   closeAddCardPopup();
 }
 

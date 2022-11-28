@@ -15,16 +15,16 @@ export class Card {
       return this._newElement;
     }
     createCard() {
-        this._element = this._getTemplate();
-        const imageSrc = this._element.querySelector('.element__image');
-        const cardText = this._element.querySelector('.element__text');
+        this._getTemplate();
+        const imageSrc = this._newElement.querySelector('.element__image');
+        const cardText = this._newElement.querySelector('.element__text');
 
         imageSrc.src = this._link;
         imageSrc.alt = this._name;
         cardText.textContent = this._name;
         
         this._setListenersForItem();
-        return this._element;
+        return this._newElement;
     }
     _deleteCard() {
       this._newElement.remove();

@@ -3,9 +3,17 @@ export class FormValidator {
         this._form = form;
         this._settings = settings;
         this._currentButton = form.querySelector(this._settings.submitButtonSelector);
+        this._popupAddButton = document.querySelector('.profile__add');
     }
     enableValidation() {
         this._setEventListeners();
+        this._popupAddButton.addEventListener('click', () => {
+            this._disableButton();
+          });
+    }
+    _disableButton() {
+        this._currentButton.setAttribute('disabled', true);
+        this._currentButton.classList.add(this._settings.inactiveButtonClass);
     }
     _setEventListeners() {
         this._form.addEventListener('input', () => {
@@ -13,17 +21,16 @@ export class FormValidator {
         });
     }
     _validateInput(event) {
-        this._currentForm = this._form;
         this._input = event.target;
         this._isValidField();
         this._isValidButtonAndInput();
     }
     _isValidField() {
-        this._errorSpan = this._currentForm.querySelector(`#${this._input.id}-error`);
+        this._errorSpan = this._form.querySelector(`#${this._input.id}-error`);
         this._errorSpan.textContent = this._input.validationMessage;
     }
     _isValidButtonAndInput() {
-        if (this._currentForm.checkValidity()) {
+        if (this._form.checkValidity()) {
             this._setSubmitButton(true);
         } else {
             this._setSubmitButton(false);
