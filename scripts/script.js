@@ -53,9 +53,8 @@ function render() {
 
 function addNewCard(e) {
   e.preventDefault();
-  const card = new Card({ name: titleInput.value, link: urlInput.value }, '.element-template');
-  const createNewElement = card.createCard();
-  elementsCard.prepend(createNewElement);
+  const createdNewElement = createCards({ name: titleInput.value, link: urlInput.value }) 
+  elementsCard.prepend(createdNewElement);
   closeAddCardPopup();
 }
 
@@ -89,6 +88,7 @@ function openAddCardPopup() {
 }
 function closeAddCardPopup() {
   closePopup(cardPopupAdd);
+  cardValidatorAdd.disableButton(cardButtonSubmit);
   formAddCard.reset();
 }
 function closeCard() {
