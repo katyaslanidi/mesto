@@ -1,10 +1,10 @@
-import { openPopup, popupText, popupImage, cardPopup } from "./script.js";
-export class Card {
-    constructor(data, template) {
+export default class Card {
+    constructor(data, template, handleCardClick) {
         this._data = data;
         this._name = data.name;
         this._link = data.link;
         this._template = template;
+        this._handleCardClick = handleCardClick;
     }
     _getTemplate() {
       this._newElement = document
@@ -33,12 +33,6 @@ export class Card {
     _addOrRemoveLike() {
         this._elementLike.classList.toggle('element__liked');
       }
-    _openCard() {
-        popupImage.src = this._link;
-        popupText.textContent = this._name;
-        popupImage.alt = this._name;
-        openPopup(cardPopup);
-    }
     _setListenersForItem() {
         this._deleteCardButton = this._newElement.querySelector('.element__delete');
         this._deleteCardButton.addEventListener('click', () => {
@@ -50,7 +44,7 @@ export class Card {
         });
         this._cardImage = this._newElement.querySelector('.element__image');
         this._cardImage.addEventListener('click', () => {
-          this._openCard();
+          this._handleCardClick({name: this._name, link: this._link});
         });
     }
 }
