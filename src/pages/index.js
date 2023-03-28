@@ -1,3 +1,5 @@
+import './index.css';
+
 import Card from '../components/Card.js';
 import FormValidator from '../components/FormValidator.js';
 import PopupWithForm from '../components/PopupWithForm.js';
@@ -32,17 +34,17 @@ cardValidatorAdd.enableValidation();
 
 const section = new Section(
   {
-  items: initialCards,
-  renderer: (item) => {
-    const card = createCard(item);
-    section.addItem(card);
+    items: initialCards,
+    renderer: (item) => {
+      const card = createCard(item);
+      section.addItem(card);
     },
   },
   ".elements"
 );
 
-const createCard = ({name, link}) => {
-  const newCard = new Card({name, link}, '.element-template', (name, link) => {
+const createCard = ({ name, link }) => {
+  const newCard = new Card({ name, link }, '.element-template', (name, link) => {
     openPopupImage.open(name, link);
   });
   return newCard.createCard();
@@ -50,9 +52,9 @@ const createCard = ({name, link}) => {
 
 section.renderItems();
 
-const userInfo = new UserInfo ({
-  nameSelector: '.profile__name', 
-  jobSelector: '.profile__job' 
+const userInfo = new UserInfo({
+  nameSelector: '.profile__name',
+  jobSelector: '.profile__job'
 });
 
 const popupEdit = new PopupWithForm('.profile-popup', (inputValues) => {
@@ -61,8 +63,8 @@ const popupEdit = new PopupWithForm('.profile-popup', (inputValues) => {
 });
 popupEdit.setEventListeners();
 
-const popupAdd = new PopupWithForm('.add-card-popup', ({name, link}) => {
-  const card = createCard({name, link});
+const popupAdd = new PopupWithForm('.add-card-popup', ({ name, link }) => {
+  const card = createCard({ name, link });
   section.addItem(card);
   popupAdd.close();
 })

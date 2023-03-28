@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Место</title>
-    <link rel="stylesheet" href="/src/index.css">
+    <!-- <link rel="stylesheet" href="/src/index.css"> -->
 </head>
 
 <body>
     <div class="root">
         <header class="header">
-            <img class="header__logo" src="/images/Vector.svg" alt="Лого">
+            <img class="header__logo" src="<%=require('./images/Vector.svg')%>" alt="Лого">
         </header>
         <main>
             <section class="profile">
-                <img class="profile__image" src="/images/image.png" alt="аватар">
+                <img class="profile__image" src="<%=require('./images/image.png')%>" alt="аватар">
                 <div class="profile__info">
                     <div class="profile__text">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -27,7 +27,6 @@
                 <button class="profile__add" type="button"></button>
             </section>
             <section class="elements">
-                <!-- <ul class="elements__list"></ul> -->
             </section>
         </main>
         <footer class="footer">
@@ -59,7 +58,8 @@
                     <input class="popup__input popup__input_url" id="GET-url" type="url" name="url"
                         placeholder="Ссылка на картинку" required>
                     <span id="GET-url-error" class="popup__error popup__error_url"></span>
-                    <button class="popup__button popup__button_invalid add-card-popup__button" type="submit">Создать</button>
+                    <button class="popup__button popup__button_invalid add-card-popup__button"
+                        type="submit">Создать</button>
                 </form>
             </div>
         </div>
@@ -73,7 +73,7 @@
         <template class="element-template">
             <div class="element">
                 <button class="element__delete" type="button">
-                    <img class="element__trash" src="/images/trash.svg">
+                    <img class="element__trash" src="<%=require('./images/trash.svg')%>" alt="Удалить">
                 </button>
                 <img class="element__image">
                 <div class="element__bottom">
@@ -83,7 +83,7 @@
             </div>
         </template>
     </div>
-    <script type="module" src="/src/index.js" defer></script>
+    <!-- <script type="module" src="/src/index.js" defer></script> -->
 </body>
 
 </html>
