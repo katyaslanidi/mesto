@@ -1,0 +1,17 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "project Mesto",
+  "main": "index.js",
+  "scripts": {
+    "build": "rd /s /q dist && webpack",
+    "dev": "webpack serve"
+  },
+  "author": "Ekaterina Aslanidi",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.76.3",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.13.1"
+  }
+}
