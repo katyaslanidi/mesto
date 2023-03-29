@@ -13,7 +13,7 @@ export default class FormValidator {
     }
     _setEventListeners() {
         this._form.addEventListener('input', () => {
-            this._validateInput(event);
+            this._validateInput();
         });
     }
     _validateInput(event) {
@@ -49,9 +49,15 @@ export default class FormValidator {
     _setErrorInput(state) {
         if (state) {
             this._input.classList.remove(this._settings.inputErrorClass);
+            this._errorSpan.textContent = "";
     
         } else {
             this._input.classList.add(this._settings.inputErrorClass);
         }
+    }
+    resetValidation(state) {
+        this._input.forEach(() => {
+            this._isValidButtonAndInput(state);
+        })
     }
 }

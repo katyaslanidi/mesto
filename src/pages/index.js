@@ -11,9 +11,6 @@ import { initialCards } from '../utils/cards.js';
 const nameInput = document.querySelector('.popup__input_name');
 const jobInput = document.querySelector('.popup__input_job');
 const popupAddButton = document.querySelector('.profile__add');
-export const cardPopup = document.querySelector('.card-popup');
-export const popupText = document.querySelector('.card-popup__text')
-export const popupImage = document.querySelector('.card-popup__image');
 const popupButton = document.querySelector('.profile__edit');
 const profileForm = document.querySelector('.popup__form');
 const formAddCard = document.querySelector('.add-card-popup__form');
@@ -32,12 +29,12 @@ const cardValidatorAdd = new FormValidator(validationSettings, formAddCard);
 profileValidatorEdit.enableValidation();
 cardValidatorAdd.enableValidation();
 
-const section = new Section(
+const cardsContainer = new Section(
   {
     items: initialCards,
     renderer: (item) => {
       const card = createCard(item);
-      section.addItem(card);
+      cardsContainer.addItem(card);
     },
   },
   ".elements"
@@ -50,7 +47,7 @@ const createCard = ({ name, link }) => {
   return newCard.createCard();
 };
 
-section.renderItems();
+cardsContainer.renderItems();
 
 const userInfo = new UserInfo({
   nameSelector: '.profile__name',
@@ -60,13 +57,15 @@ const userInfo = new UserInfo({
 const popupEdit = new PopupWithForm('.profile-popup', (inputValues) => {
   popupEdit.close();
   userInfo.setUserInfo(inputValues);
+  profileValidatorEdit.resetValidation(true);
 });
 popupEdit.setEventListeners();
 
 const popupAdd = new PopupWithForm('.add-card-popup', ({ name, link }) => {
   const card = createCard({ name, link });
-  section.addItem(card);
+  cardsContainer.addItem(card);
   popupAdd.close();
+  cardValidatorAdd.resetValidation(false);
 })
 popupAdd.setEventListeners();
 

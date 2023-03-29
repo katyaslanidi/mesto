@@ -34,7 +34,7 @@
         </footer>
         <div class="overlay profile-popup">
             <div class="popup">
-                <button class="popup__close profile-popup__close" type="button"></button>
+                <button class="popup__close profile-popup__close close-button" type="button"></button>
                 <form class="popup__form" name="edit" novalidate>
                     <h2 class="popup__title">Редактировать профиль</h2>
                     <input class="popup__input popup__input_name" id="GET-name" type="text" name="name"
@@ -49,13 +49,13 @@
         </div>
         <div class="overlay add-card-popup">
             <div class="popup">
-                <button class="popup__close add-card-popup__close" type="button"></button>
+                <button class="popup__close add-card-popup__close close-button" type="button"></button>
                 <form class="popup__form add-card-popup__form" name="card" novalidate>
                     <h2 class="popup__title add-card-popup__title">Новое место</h2>
-                    <input class="popup__input popup__input_title" id="GET-title" type="text" name="title"
+                    <input class="popup__input popup__input_title" id="GET-title" type="text" name="name"
                         placeholder="Название" minlength="2" maxlength="30" required>
                     <span id="GET-title-error" class="popup__error popup__error_title"></span>
-                    <input class="popup__input popup__input_url" id="GET-url" type="url" name="url"
+                    <input class="popup__input popup__input_url" id="GET-url" type="url" name="link"
                         placeholder="Ссылка на картинку" required>
                     <span id="GET-url-error" class="popup__error popup__error_url"></span>
                     <button class="popup__button popup__button_invalid add-card-popup__button"
@@ -65,7 +65,7 @@
         </div>
         <div class="overlay card-popup">
             <div class="card-popup__card">
-                <button class="card-popup__close" type="button"></button>
+                <button class="card-popup__close close-button" type="button"></button>
                 <img class="card-popup__image">
                 <h2 class="card-popup__text"></h2>
             </div>

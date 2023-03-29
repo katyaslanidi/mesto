@@ -14,14 +14,13 @@ export default class Popup {
     setEventListeners() {
         this._popup.addEventListener('mousedown', (evt) => {
             if (evt.target.classList.contains('overlay_opened') 
-            || evt.target.classList.contains('popup__close') 
-            || evt.target.classList.contains('card-popup__close')) {
+            || evt.target.classList.contains('close-button')) {
                 this.close();
             }
         })
     }
     _handleEscClose(evt) {
-        if (evt.key == 'Escape') {
+        if (evt.key === 'Escape') {
             this.close();
         }
     }
