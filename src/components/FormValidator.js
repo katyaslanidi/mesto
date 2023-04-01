@@ -3,6 +3,7 @@ export default class FormValidator {
         this._form = form;
         this._settings = settings;
         this._currentButton = form.querySelector(this._settings.submitButtonSelector);
+        this._inputArray = Array.from(form.querySelector(this._settings.inputSelector))
     }
     enableValidation() {
         this._setEventListeners();
@@ -13,7 +14,7 @@ export default class FormValidator {
     }
     _setEventListeners() {
         this._form.addEventListener('input', () => {
-            this._validateInput();
+            this._validateInput(event);
         });
     }
     _validateInput(event) {
@@ -55,9 +56,10 @@ export default class FormValidator {
             this._input.classList.add(this._settings.inputErrorClass);
         }
     }
-    resetValidation(state) {
-        this._input.forEach(() => {
-            this._isValidButtonAndInput(state);
-        })
+    _removeError(element) {
+        this._errorSpan = this._form.querySelector(`#${element.id}-error`);
+        this._errorSpan.textContent = "";
+        this._errorSpan.classList.remove(this.errorClass);
+        element.classList.remove(this.inputErrorClass);
     }
 }

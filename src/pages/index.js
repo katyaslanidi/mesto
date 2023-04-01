@@ -14,6 +14,7 @@ const popupAddButton = document.querySelector('.profile__add');
 const popupButton = document.querySelector('.profile__edit');
 const profileForm = document.querySelector('.popup__form');
 const formAddCard = document.querySelector('.add-card-popup__form');
+const popupSubmitButton = document.querySelector('.add-card-popup__button');
 const validationSettings = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
@@ -57,15 +58,14 @@ const userInfo = new UserInfo({
 const popupEdit = new PopupWithForm('.profile-popup', (inputValues) => {
   popupEdit.close();
   userInfo.setUserInfo(inputValues);
-  profileValidatorEdit.resetValidation(true);
 });
 popupEdit.setEventListeners();
 
-const popupAdd = new PopupWithForm('.add-card-popup', ({ name, link }) => {
-  const card = createCard({ name, link });
+const popupAdd = new PopupWithForm('.add-card-popup', (inputValues) => {
+  const card = createCard(inputValues);
   cardsContainer.addItem(card);
   popupAdd.close();
-  cardValidatorAdd.resetValidation(false);
+  cardValidatorAdd.disableButton(popupSubmitButton);
 })
 popupAdd.setEventListeners();
 
