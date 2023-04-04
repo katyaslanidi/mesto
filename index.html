@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Место</title>
+    <!-- <link rel="stylesheet" href="/src/index.css"> -->
+<script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
+
+<body>
+    <div class="root">
+        <header class="header">
+            <img class="header__logo" src="images/Vector.svg" alt="Лого">
+        </header>
+        <main>
+            <section class="profile">
+                <img class="profile__image" src="images/image.png" alt="аватар">
+                <div class="profile__info">
+                    <div class="profile__text">
+                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <p class="profile__job">Исследователь океана</p>
+                    </div>
+                    <button class="profile__edit" type="button"></button>
+                </div>
+                <button class="profile__add" type="button"></button>
+            </section>
+            <section class="elements">
+            </section>
+        </main>
+        <footer class="footer">
+            <h2 class="footer__text">&copy; 2020 Mesto Russia</h2>
+        </footer>
+        <div class="overlay profile-popup">
+            <div class="popup">
+                <button class="popup__close profile-popup__close close-button" type="button"></button>
+                <form class="popup__form" name="edit" novalidate>
+                    <h2 class="popup__title">Редактировать профиль</h2>
+                    <input class="popup__input popup__input_name" id="GET-name" type="text" name="name"
+                        placeholder="Имя" minlength="2" maxlength="40" required>
+                    <span id="GET-name-error" class="popup__error popup__error_name"></span>
+                    <input class="popup__input popup__input_job" id="GET-job" type="text" name="job"
+                        placeholder="О себе" minlength="2" maxlength="200" required>
+                    <span id="GET-job-error" class="popup__error popup__error_job"></span>
+                    <button class="popup__button popup__button_valid" type="submit">Сохранить</button>
+                </form>
+            </div>
+        </div>
+        <div class="overlay add-card-popup">
+            <div class="popup">
+                <button class="popup__close add-card-popup__close close-button" type="button"></button>
+                <form class="popup__form add-card-popup__form" name="card" novalidate>
+                    <h2 class="popup__title add-card-popup__title">Новое место</h2>
+                    <input class="popup__input popup__input_title" id="GET-title" type="text" name="name"
+                        placeholder="Название" minlength="2" maxlength="30" required>
+                    <span id="GET-title-error" class="popup__error popup__error_title"></span>
+                    <input class="popup__input popup__input_url" id="GET-url" type="url" name="link"
+                        placeholder="Ссылка на картинку" required>
+                    <span id="GET-url-error" class="popup__error popup__error_url"></span>
+                    <button class="popup__button popup__button_invalid add-card-popup__button"
+                        type="submit" disabled>Создать</button>
+                </form>
+            </div>
+        </div>
+        <div class="overlay card-popup">
+            <div class="card-popup__card">
+                <button class="card-popup__close close-button" type="button"></button>
+                <img class="card-popup__image">
+                <h2 class="card-popup__text"></h2>
+            </div>
+        </div>
+        <template class="element-template">
+            <div class="element">
+                <button class="element__delete" type="button">
+                    <img class="element__trash" src="images/trash.svg" alt="Удалить">
+                </button>
+                <img class="element__image">
+                <div class="element__bottom">
+                    <h2 class="element__text"></h2>
+                    <button class="element__like" type="button"></button>
+                </div>
+            </div>
+        </template>
+    </div>
+    <!-- <script type="module" src="/src/index.js" defer></script> -->
+</body>
+
+</html>
