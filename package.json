@@ -4,8 +4,10 @@
   "description": "project Mesto",
   "main": "index.js",
   "scripts": {
-    "build": "rd /s /q dist && webpack --mode development",
-    "dev": "webpack serve --open"
+    "build": "webpack --mode development",
+    "dev": "webpack serve --open",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^6.7.3",
     "cssnano": "^6.0.0",
+    "gh-pages": "^5.0.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.7.5",
     "postcss-loader": "^7.1.0",
