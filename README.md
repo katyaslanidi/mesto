@@ -15,4 +15,4 @@
 
 
 ### gh-pages
-gh-pages: https://katyaslanidi.github.io/mesto/
+gh-pages:
