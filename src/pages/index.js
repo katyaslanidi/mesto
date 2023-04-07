@@ -5,6 +5,7 @@ import Card from '../components/Card.js';
 import FormValidator from '../components/FormValidator.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithSubmit from '../components/PopupWithSubmit.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
 import { initialCards } from '../utils/cards.js';
@@ -23,6 +24,13 @@ const validationSettings = {
   inactiveButtonClass: 'popup__button_invalid',
   inputErrorClass: 'popup__input_error',
   errorClass: 'error'
+};
+const apiConfig = {
+  url: 'https://mesto.nomoreparties.co/v1/cohort-62',
+  headers: {
+    authorization: 'c41c66fe-334b-43d7-a03f-de906f681c65',
+    "Content-Type": "application/json",
+  },
 };
 
 const profileValidatorEdit = new FormValidator(validationSettings, profileForm);
