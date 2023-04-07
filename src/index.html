@@ -16,6 +16,7 @@
         </header>
         <main>
             <section class="profile">
+                <button class="profile__image-edit-button" type="button"></button>
                 <img class="profile__image" src="<%=require('./images/image.png')%>" alt="аватар">
                 <div class="profile__info">
                     <div class="profile__text">
@@ -32,6 +33,19 @@
         <footer class="footer">
             <h2 class="footer__text">&copy; 2020 Mesto Russia</h2>
         </footer>
+
+        <div class="overlay avatar-edit">
+            <div class="avatar-edit__popup">
+                <h2 class="popup__title avatar-edit__title">Обновить аватар</h2>
+                <button class="popup__close avatar-edit__close close-button" type="button"></button>
+                <form class="popup__form avatar-edit__form" novalidate>
+                    <input class="popup__input avatar-edit__input" id="GET-image-link" type="url" name="link" placeholder="Ссылка" required>
+                    <span id="GET-image-link-error" class="popup__error popup__error_avatar"></span>
+                    <button class="popup__button popup__button_valid avatar-edit__button" type="submit" disabled>Сохранить</button>
+                </form>
+            </div>
+        </div>
+
         <div class="overlay profile-popup">
             <div class="popup">
                 <button class="popup__close profile-popup__close close-button" type="button"></button>
@@ -47,6 +61,7 @@
                 </form>
             </div>
         </div>
+
         <div class="overlay add-card-popup">
             <div class="popup">
                 <button class="popup__close add-card-popup__close close-button" type="button"></button>
@@ -58,11 +73,12 @@
                     <input class="popup__input popup__input_url" id="GET-url" type="url" name="link"
                         placeholder="Ссылка на картинку" required>
                     <span id="GET-url-error" class="popup__error popup__error_url"></span>
-                    <button class="popup__button popup__button_invalid add-card-popup__button"
-                        type="submit" disabled>Создать</button>
+                    <button class="popup__button popup__button_invalid add-card-popup__button" type="submit"
+                        disabled>Создать</button>
                 </form>
             </div>
         </div>
+
         <div class="overlay card-popup">
             <div class="card-popup__card">
                 <button class="card-popup__close close-button" type="button"></button>
@@ -70,6 +86,17 @@
                 <h2 class="card-popup__text"></h2>
             </div>
         </div>
+
+        <div class="overlay card-delete">
+            <div class="card-delete__popup">
+                <button class="popup__close card-delete__close close-button" type="button"></button>
+                <h2 class="popup__title card-delete__title">Вы уверенны?</h2>
+                <form class="popup__form card-delete__form" novalidate>
+                    <button class="popup__button card-delete__button" type="submit">Да</button>
+                </form>
+            </div>
+        </div>
+
         <template class="element-template">
             <div class="element">
                 <button class="element__delete" type="button">
@@ -78,10 +105,14 @@
                 <img class="element__image">
                 <div class="element__bottom">
                     <h2 class="element__text"></h2>
-                    <button class="element__like" type="button"></button>
+                    <div class="element__like-box">
+                        <button class="element__like" type="button"></button>
+                        <span class="element__like-counter"></span>
+                    </div>
                 </div>
             </div>
         </template>
+
     </div>
     <!-- <script type="module" src="/src/index.js" defer></script> -->
 </body>
