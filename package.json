@@ -4,7 +4,7 @@
   "description": "project Mesto",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode development",
+    "build": "rimraf dist && webpack --mode development",
     "dev": "webpack serve --open",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
