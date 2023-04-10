@@ -9,8 +9,8 @@ import PopupWithSubmit from '../components/PopupWithSubmit.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
 
-const nameInput = document.querySelector('.popup__input_name');
-const jobInput = document.querySelector('.popup__input_job');
+// const nameInput = document.querySelector('.popup__input_name');
+// const jobInput = document.querySelector('.popup__input_job');
 const popupAddButton = document.querySelector('.profile__add');
 const popupButton = document.querySelector('.profile__edit');
 const imageEditButton = document.querySelector('.profile__image-edit-button');
@@ -72,10 +72,10 @@ const popupWithSubmit = new PopupWithSubmit('.card-delete');
 popupWithSubmit.setEventListeners();
 
 const popupUserEdit = new PopupWithForm('.profile-popup', (data) => {
-  const { nameInput, jobInput } = data;
+  const { userName, userJob } = data;
   popupUserEdit.rendererLoading(true);
   api
-    .editUserInfo(nameInput, jobInput)
+    .editUserInfo(userName, userJob)
     .then((data) => {
       userInfo.setUserInfo(data);
       popupUserEdit.close();
