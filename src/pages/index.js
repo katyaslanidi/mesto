@@ -24,7 +24,7 @@ const validationSettings = {
   submitButtonSelector: '.popup__button',
   inactiveButtonClass: 'popup__button_invalid',
   inputErrorClass: 'popup__input_error',
-  errorClass: 'error'
+  errorClass: 'popup__error_active',
 };
 const apiConfig = {
   url: 'https://mesto.nomoreparties.co/v1/cohort-62',
@@ -56,7 +56,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
 
 const cardsContainer = new Section(
   (card) => createNewCard(card),
-  '.element-template'
+  '.elements'
 );
 
 const userInfo = new UserInfo({
@@ -71,18 +71,32 @@ openPopupImage.setEventListeners();
 const popupWithSubmit = new PopupWithSubmit('.card-delete');
 popupWithSubmit.setEventListeners();
 
-const popupUserEdit = new PopupWithForm('.profile-popup', (data) => {
-  const { userName, userJob } = data;
+// const popupUserEdit = new PopupWithForm('.profile-popup', ((data) => {
+//   const { userName, userJob } = data;
+//   popupUserEdit.rendererLoading(true);
+//   api
+//     .editUserInfo(userName, userJob)
+//     .then((data) => {
+//       userInfo.setUserInfo(data);
+//       popupUserEdit.close();
+//     })
+//     .catch((err) => console.log(err))
+//     .finally(() => popupUserEdit.rendererLoading(false));
+// })
+// });
+const popupUserEdit = new PopupWithForm('.profile-popup', ((data) => {
   popupUserEdit.rendererLoading(true);
   api
-    .editUserInfo(userName, userJob)
+    .editUserInfo({name: data.name, about: data.about})
     .then((data) => {
+      popupUserEdit.rendererLoading(true);
       userInfo.setUserInfo(data);
       popupUserEdit.close();
     })
     .catch((err) => console.log(err))
     .finally(() => popupUserEdit.rendererLoading(false));
-});
+})
+);
 popupUserEdit.setEventListeners();
 
 const popupProfileImageEdit = new PopupWithForm('.avatar-edit', (data) => {
@@ -106,7 +120,7 @@ const popupAddCard = new PopupWithForm('.add-card-popup', (dataCard) => {
     .then((newDataCard) => {
       const card = createNewCard(newDataCard);
       cardsContainer.addItem(card);
-      cardValidatorAdd.disableButton(popupSubmitButton);
+      // cardValidatorAdd.makeButtonNotActive(popupSubmitButton);
       popupAddCard.close();
     })
     .catch((err) => console.log(err))
@@ -158,14 +172,18 @@ const createNewCard = (dataCard) => {
 };
 
 popupButton.addEventListener('click', () => {
-  popupUserEdit._getInputValues(userInfo.getUserInfo());
+  popupUserEdit.setInputValues(userInfo.getUserInfo());
+  profileValidatorEdit.makeButtonNotActive();
+  profileValidatorEdit.resetErrors();
   popupUserEdit.open();
 });
 
 popupAddButton.addEventListener('click', () => {
+  cardValidatorAdd.resetErrors();
   popupAddCard.open();
 });
 
 imageEditButton.addEventListener('click', () => {
+  profileImageValidator.resetErrors();
   popupProfileImageEdit.open();
 })

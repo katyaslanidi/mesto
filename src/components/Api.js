@@ -21,13 +21,13 @@ export default class Api {
             headers: this._headers,
         }).then((res) => this._getResponse(res));
     }
-    editUserInfo(userName, userJob) {
+    editUserInfo(data) {
         return fetch(`${this._url}/users/me`, {
             method: "PATCH",
             headers: this._headers,
             body: JSON.stringify({
-                name: userName,
-                about: userJob,
+                name: data.name,
+                about: data.about,
             }),
         }).then((res) => this._getResponse(res));
     }
