@@ -8,11 +8,16 @@
 - Javascript
 
 А также:
-- Адаптивная верстка
-- Бэм
-- Flexbox
+- Flex
 - Grid
+- Медиа-запросы для адаптивности сайта
+- БЭМ
+- Figma
+- Popup
+- ООП
+- WebPack
+- Работа с удалённым сервером
 
 
 ### gh-pages
-gh-pages: https://katyaslanidi.github.io/mesto/
+Gh-pages: https://katyaslanidi.github.io/mesto/

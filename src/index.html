@@ -39,9 +39,11 @@
                 <h2 class="popup__title avatar-edit__title">Обновить аватар</h2>
                 <button class="popup__close avatar-edit__close close-button" type="button"></button>
                 <form class="popup__form avatar-edit__form" novalidate>
-                    <input class="popup__input avatar-edit__input" id="GET-image-link" type="url" name="link" placeholder="Ссылка" required>
+                    <input class="popup__input avatar-edit__input" id="GET-image-link" type="url" name="link"
+                        placeholder="Ссылка" required>
                     <span id="GET-image-link-error" class="popup__error popup__error_avatar"></span>
-                    <button class="popup__button popup__button_valid avatar-edit__button" type="submit" disabled>Сохранить</button>
+                    <button class="popup__button popup__button_valid avatar-edit__button" type="submit"
+                        disabled>Сохранить</button>
                 </form>
             </div>
         </div>
@@ -49,7 +51,7 @@
         <div class="overlay profile-popup">
             <div class="popup">
                 <button class="popup__close profile-popup__close close-button" type="button"></button>
-                <form class="popup__form" name="edit" novalidate>
+                <form class="popup__form popup__form-edit" name="edit" novalidate>
                     <h2 class="popup__title">Редактировать профиль</h2>
                     <input class="popup__input popup__input_name" id="GET-name" type="text" name="name"
                         placeholder="Имя" minlength="2" maxlength="40" required>
@@ -99,9 +101,7 @@
 
         <template class="element-template">
             <div class="element">
-                <button class="element__delete" type="button">
-                    <img class="element__trash" src="<%=require('./images/trash.svg')%>" alt="Удалить">
-                </button>
+                <button class="element__delete" type="button"></button>
                 <img class="element__image">
                 <div class="element__bottom">
                     <h2 class="element__text"></h2>

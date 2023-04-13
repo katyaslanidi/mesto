@@ -1,6 +1,6 @@
 .profile__image-edit-button {
     position: absolute;
-    border-radius: 50%;
+    border-radius: 100px;
     border: none;
     width: 120px;
     height: 120px;
@@ -15,4 +15,10 @@
     cursor: pointer;
     opacity: 0.7;
     background-color: black;
+}
+
+@media screen and (max-width: 589px) {
+    .profile__image-edit-button {
+        top: 124px;
+    }
 }

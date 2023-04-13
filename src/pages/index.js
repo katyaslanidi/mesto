@@ -9,15 +9,12 @@ import PopupWithSubmit from '../components/PopupWithSubmit.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
 
-// const nameInput = document.querySelector('.popup__input_name');
-// const jobInput = document.querySelector('.popup__input_job');
 const popupAddButton = document.querySelector('.profile__add');
 const popupButton = document.querySelector('.profile__edit');
 const imageEditButton = document.querySelector('.profile__image-edit-button');
-const profileForm = document.querySelector('.popup__form');
+const profileForm = document.querySelector('.popup__form-edit');
 const formAddCard = document.querySelector('.add-card-popup__form');
 const profileImageForm = document.querySelector('.avatar-edit__form');
-const popupSubmitButton = document.querySelector('.add-card-popup__button');
 const validationSettings = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
@@ -71,23 +68,10 @@ openPopupImage.setEventListeners();
 const popupWithSubmit = new PopupWithSubmit('.card-delete');
 popupWithSubmit.setEventListeners();
 
-// const popupUserEdit = new PopupWithForm('.profile-popup', ((data) => {
-//   const { userName, userJob } = data;
-//   popupUserEdit.rendererLoading(true);
-//   api
-//     .editUserInfo(userName, userJob)
-//     .then((data) => {
-//       userInfo.setUserInfo(data);
-//       popupUserEdit.close();
-//     })
-//     .catch((err) => console.log(err))
-//     .finally(() => popupUserEdit.rendererLoading(false));
-// })
-// });
 const popupUserEdit = new PopupWithForm('.profile-popup', ((data) => {
   popupUserEdit.rendererLoading(true);
   api
-    .editUserInfo({name: data.name, about: data.about})
+    .editUserInfo({ name: data.name, about: data.about })
     .then((data) => {
       popupUserEdit.rendererLoading(true);
       userInfo.setUserInfo(data);
@@ -120,7 +104,6 @@ const popupAddCard = new PopupWithForm('.add-card-popup', (dataCard) => {
     .then((newDataCard) => {
       const card = createNewCard(newDataCard);
       cardsContainer.addItem(card);
-      // cardValidatorAdd.makeButtonNotActive(popupSubmitButton);
       popupAddCard.close();
     })
     .catch((err) => console.log(err))

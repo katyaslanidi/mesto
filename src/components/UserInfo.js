@@ -10,7 +10,7 @@ export default class UserInfo {
             about: this._job.textContent
         };
     }
-    setUserInfo({name, about, avatar}) {
+    setUserInfo({ name, about, avatar }) {
         this._name.textContent = name;
         this._job.textContent = about;
         this._profileImage.src = avatar;

@@ -7,7 +7,7 @@ export default class PopupWithSubmit extends Popup {
         this._submitButton = this._popup.querySelector('.popup__button');
     }
     rendererLoading(loading) {
-        if(loading) {
+        if (loading) {
             this._submitButton.textContent = "Удаление...";
         } else {
             this._submitButton.textContent = "Да";

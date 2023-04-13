@@ -8,3 +8,10 @@
     margin-right: auto;
     position: relative;
 }
+
+@media screen and (max-width: 589px) {
+    .card-delete__popup {
+        width: 282px;
+        height: 200px;
+    }
+}

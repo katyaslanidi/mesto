@@ -30,15 +30,14 @@ export default class Card {
     this._cardImage.alt = this._name;
     this._cardImage.src = this._link;
 
-    this._trashButton = this._newElement.querySelector('.element__trash');
+    this._trashButton = this._newElement.querySelector('.element__delete');
     this._likeButton = this._newElement.querySelector('.element__like');
 
     this._setListenersForItem();
     this.setLikesCard(this._likes);
 
-    if (this._userId !== this._ownerId) {
-      this._trashButton.remove();
-      this._trashButton = null;
+    if (this._owenerId !== this._userId) {
+      this._trashButton.style.display = 'none';
     }
 
     return this._newElement;

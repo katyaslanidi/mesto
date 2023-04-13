@@ -6,4 +6,11 @@
     padding: 0;
     border: none;
     background: transparent;
+    background-image: url(../../../images/trash.svg);
+    background-size: contain;
+}
+
+.element__delete:hover {
+    opacity: 0.6;
+    cursor: pointer;
 }
