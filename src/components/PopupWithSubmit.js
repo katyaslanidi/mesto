@@ -13,8 +13,8 @@ export default class PopupWithSubmit extends Popup {
             this._submitButton.textContent = "Да";
         }
     }
-    setSubmitHandlers(submitHandlers) {
-        this._handleFormSubmit = submitHandlers;
+    setSubmitHandler(submitHandler) {
+        this._handleFormSubmit = submitHandler;
     }
     setEventListeners() {
         super.setEventListeners();

@@ -32,6 +32,7 @@ export default class Card {
 
     this._trashButton = this._newElement.querySelector('.element__delete');
     this._likeButton = this._newElement.querySelector('.element__like');
+    this._likeCounter = this._newElement.querySelector('.element__like-counter');
 
     this._setListenersForItem();
     this.setLikesCard(this._likes);
@@ -57,13 +58,12 @@ export default class Card {
   }
   setLikesCard(newLikes) {
     this._likes = newLikes;
-    const likeCounter = this._newElement.querySelector('.element__like-counter');
     if (this.alreadyLiked()) {
       this._activeLike();
     } else {
       this._deactiveLike();
     }
-    likeCounter.textContent = this._likes.length;
+    this._likeCounter.textContent = this._likes.length;
   }
   _setListenersForItem() {
     this._likeButton.addEventListener('click', () => {

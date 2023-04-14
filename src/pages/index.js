@@ -8,6 +8,8 @@ import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithSubmit from '../components/PopupWithSubmit.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
+import { validationSettings } from '../utils/constants.js';
+import { apiConfig } from '../utils/constants.js';
 
 const popupAddButton = document.querySelector('.profile__add');
 const popupButton = document.querySelector('.profile__edit');
@@ -15,21 +17,7 @@ const imageEditButton = document.querySelector('.profile__image-edit-button');
 const profileForm = document.querySelector('.popup__form-edit');
 const formAddCard = document.querySelector('.add-card-popup__form');
 const profileImageForm = document.querySelector('.avatar-edit__form');
-const validationSettings = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_invalid',
-  inputErrorClass: 'popup__input_error',
-  errorClass: 'popup__error_active',
-};
-const apiConfig = {
-  url: 'https://mesto.nomoreparties.co/v1/cohort-62',
-  headers: {
-    authorization: 'c41c66fe-334b-43d7-a03f-de906f681c65',
-    "Content-Type": 'application/json',
-  },
-};
+
 let userId;
 
 const profileValidatorEdit = new FormValidator(validationSettings, profileForm);
@@ -49,7 +37,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
     cardsContainer.renderItems(cards);
   })
   .catch((err) => console.log(err))
-  .finally(() => { });
+  .finally(() => {});
 
 const cardsContainer = new Section(
   (card) => createNewCard(card),
@@ -73,7 +61,6 @@ const popupUserEdit = new PopupWithForm('.profile-popup', ((data) => {
   api
     .editUserInfo({ name: data.name, about: data.about })
     .then((data) => {
-      popupUserEdit.rendererLoading(true);
       userInfo.setUserInfo(data);
       popupUserEdit.close();
     })
