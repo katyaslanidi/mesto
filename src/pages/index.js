@@ -107,7 +107,7 @@ const createNewCard = (dataCard) => {
     },
     (id) => {
       popupWithSubmit.open();
-      popupWithSubmit.setSubmitHandlers(() => {
+      popupWithSubmit.setSubmitHandler(() => {
         popupWithSubmit.rendererLoading(true);
         api
           .deleteCard(id)
